@@ -34,9 +34,6 @@
         "import/export": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-
-        // "camelcase": "off",
-        "import/no-unresolved": "error",
         "@typescript-eslint/naming-convention": [
             "error",
             {
@@ -48,21 +45,6 @@
                     "regex": "^I[A-Z]",
                     "match": true
                 }
-            }
-        ],
-        // "class-methods-use-this": "off",
-        // "import/prefer-default-export": "off",
-        // "no-shadow": "off",
-        // "no-console": "off",
-        // "no-useless-constructor": "off",
-        // "no-empty-function": "off",
-        // "lines-between-class-members": "off",
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "ts": "never",
-                "tsx": "never"
             }
         ],
         "import-helpers/order-imports": [
@@ -102,10 +84,6 @@
                 ]
             }
         ],
-        // "react/react-in-jsx-scope": "off",
         "no-use-before-define": "off"
-        // "@typescript-eslint/no-use-before-define": [
-        //     "error"
-        // ]
     }
 }
