@@ -1,12 +1,16 @@
 import React from 'react'
-import { Text } from 'react-native'
 
-import { Container } from './home-styles'
+import { Registered } from '../../components/registered/registered'
+import { Topbar } from '../../components/topbar/topbar'
+import { Container, PageContainer } from './home-styles'
 
 export const Home = () => {
   return (
     <Container>
-      <Text>Home</Text>
+      <Topbar />
+      <PageContainer>
+        <Registered />
+      </PageContainer>
     </Container>
   )
 }
