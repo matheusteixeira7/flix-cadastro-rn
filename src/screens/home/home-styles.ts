@@ -1,10 +1,18 @@
+import { FlatList } from 'react-native'
+import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
-export const Container = styled.View``
+import { IDataProps } from '../../components/client-registered/client-registered'
+
+export const Container = styled.View`
+  flex: 1;
+`
 
 export const PageContainer = styled.View`
+  flex: 1;
   margin: -40px 24px;
+  margin-bottom: ${getBottomSpace()}px;
 `
 
 export const RegisteredUsersTitle = styled.Text`
@@ -13,4 +21,14 @@ export const RegisteredUsersTitle = styled.Text`
   color: ${({ theme }) => theme.colors.title};
 
   margin: 32px 0 24px;
+`
+
+export const ClientRegisteredList = styled(
+  FlatList as new () => FlatList<IDataProps>
+).attrs({
+  showsVerticalScrollIndicator: false,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+})<any>`
+  flex: 1;
+  margin-top: 32px;
 `
