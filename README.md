@@ -1,0 +1,1 @@
+Aplicativo Android e iOS desenvolvido para a empresa Flix Telecom, com o intuito de facilitar o cadastro de novos clientes pelas suas centenas de vendedores externos.
