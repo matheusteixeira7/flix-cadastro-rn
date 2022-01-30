@@ -1,3 +1,6 @@
+/* eslint-disable import/no-duplicates */
+import 'react-native-gesture-handler'
+
 import {
   Poppins_400Regular,
   Poppins_500Medium,
@@ -5,12 +8,15 @@ import {
   Poppins_700Bold,
   useFonts,
 } from '@expo-google-fonts/poppins'
+import { NavigationContainer } from '@react-navigation/native'
 import AppLoading from 'expo-app-loading'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
+import { StyleSheet } from 'react-native'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { ThemeProvider } from 'styled-components/native'
 
-import { Home } from './src/screens/home/home'
+import { AppRoutes } from './src/routes/app.routes'
 import theme from './src/styles/theme'
 
 export default function App() {
@@ -26,11 +32,19 @@ export default function App() {
   }
 
   return (
-    <>
+    <NavigationContainer>
       <StatusBar style="light" />
       <ThemeProvider theme={theme}>
-        <Home />
+        <GestureHandlerRootView style={styles.gestureHandler}>
+          <AppRoutes />
+        </GestureHandlerRootView>
       </ThemeProvider>
-    </>
+    </NavigationContainer>
   )
 }
+
+const styles = StyleSheet.create({
+  gestureHandler: {
+    flex: 1,
+  },
+})
