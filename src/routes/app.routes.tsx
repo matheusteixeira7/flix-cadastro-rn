@@ -3,11 +3,7 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from '@expo/vector-icons'
-import {
-  createBottomTabNavigator,
-  BottomTabBar,
-} from '@react-navigation/bottom-tabs'
-import { LinearGradient } from 'expo-linear-gradient'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
