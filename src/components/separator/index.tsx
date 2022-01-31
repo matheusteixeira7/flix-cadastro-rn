@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from './separator-styles'
+import { Container } from './styles'
 export const Separator = () => {
   return <Container />
 }

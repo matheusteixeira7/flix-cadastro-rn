@@ -8,8 +8,8 @@ import React from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
 
-import { Home } from '../screens/home/home'
-import { Resume } from '../screens/resume/resume'
+import { Home } from '../screens/home'
+import { Resume } from '../screens/resume'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 

@@ -1,9 +1,9 @@
-import { FlatList } from 'react-native'
+import { FlatList, Modal } from 'react-native'
 import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
-import { IDataProps } from '../../components/client-registered/client-registered'
+import { IDataProps } from '../../components/client-registered'
 
 export const Container = styled.View`
   flex: 1;
@@ -32,3 +32,5 @@ export const ClientRegisteredList = styled(
   flex: 1;
   margin-top: 32px;
 `
+
+export const EditClientModalContainer = styled(Modal).attrs({})``

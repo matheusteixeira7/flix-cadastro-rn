@@ -25,6 +25,7 @@ export default {
     subtitle: '#706E7A',
 
     transparent: 'rgba(0, 0, 0, 0)',
+    modal_transparent: 'rgba(0, 0, 0, 0.6)',
   },
   fonts: {
     regular: 'Poppins_400Regular',

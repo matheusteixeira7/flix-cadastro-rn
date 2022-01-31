@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Container, Client, Name, Date, Icon } from './client-registered-styles'
+import { Container, Client, Name, Date, Icon } from './styles'
 
 export interface IDataProps {
   id: string
@@ -11,9 +11,15 @@ export interface IDataProps {
 
 interface ICLientRegisteredProps {
   data: IDataProps
+  openModal: () => void
+  setUserName: (client: string) => void
 }
 
-export const ClientRegistered = ({ data }: ICLientRegisteredProps) => {
+export const ClientRegistered = ({
+  data,
+  openModal,
+  setUserName,
+}: ICLientRegisteredProps) => {
   const [iconName, setIconName] = useState('clockcircle')
 
   useEffect(() => {
@@ -26,8 +32,13 @@ export const ClientRegistered = ({ data }: ICLientRegisteredProps) => {
     )
   }, [data.status])
 
+  const handleOpenModal = () => {
+    setUserName(data.name)
+    openModal()
+  }
+
   return (
-    <Container>
+    <Container onPress={handleOpenModal}>
       <Client>
         <Name>{data.name}</Name>
         <Date>{data.date}</Date>

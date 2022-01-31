@@ -7,7 +7,7 @@ import {
   Strong,
   Title,
   VerticalSeparator,
-} from './registered-styles'
+} from './styles'
 
 export const Registered = () => {
   return (

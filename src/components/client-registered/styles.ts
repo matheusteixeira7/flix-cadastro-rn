@@ -6,7 +6,7 @@ interface IIconsProps {
   status: string
 }
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;

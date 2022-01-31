@@ -9,7 +9,7 @@ import {
   UserName,
   Greeting,
   UserPicture,
-} from './topbar-styles'
+} from './styles'
 
 export const Topbar = () => {
   return (

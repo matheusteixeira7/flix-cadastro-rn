@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { ClientRegistered } from '../../components/client-registered/client-registered'
-import { Registered } from '../../components/registered/registered'
-import { Separator } from '../../components/separator/separator'
-import { Topbar } from '../../components/topbar/topbar'
+import { ClientRegistered } from '../../components/client-registered'
+import { EditClientModal } from '../../components/edit-client-modal'
+import { Registered } from '../../components/registered'
+import { Separator } from '../../components/separator'
+import { Topbar } from '../../components/topbar'
 import {
   ClientRegisteredList,
   Container,
+  EditClientModalContainer,
   PageContainer,
   RegisteredUsersTitle,
-} from './home-styles'
+} from './styles'
 
 const client = [
   {
@@ -69,8 +71,35 @@ const client = [
 ]
 
 export const Home = () => {
+  const [modalVisible, setModalVisible] = useState(false)
+  const [clientName, setClientName] = useState('')
+
+  const handleCloseEditClientModal = (): void => {
+    setModalVisible(false)
+  }
+
+  const handleOpenEditClientModal = (): void => {
+    setModalVisible(true)
+  }
+
+  const handleClientName = (client: string): void => {
+    setClientName(client)
+  }
+
   return (
     <Container>
+      <EditClientModalContainer
+        animationType="fade"
+        visible={modalVisible}
+        transparent={true}
+        onRequestClose={handleCloseEditClientModal}
+      >
+        <EditClientModal
+          onPress={handleCloseEditClientModal}
+          clientName={clientName}
+        />
+      </EditClientModalContainer>
+
       <Topbar />
 
       <PageContainer>
@@ -80,7 +109,13 @@ export const Home = () => {
         <ClientRegisteredList
           data={client}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ClientRegistered data={item} />}
+          renderItem={({ item }) => (
+            <ClientRegistered
+              data={item}
+              openModal={handleOpenEditClientModal}
+              setUserName={handleClientName}
+            />
+          )}
         />
       </PageContainer>
     </Container>
