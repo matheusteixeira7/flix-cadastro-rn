@@ -1,4 +1,4 @@
-import { FlatList, Modal } from 'react-native'
+import { FlatList, Modal as ModalContainer } from 'react-native'
 import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
@@ -33,4 +33,4 @@ export const ClientRegisteredList = styled(
   margin-top: 32px;
 `
 
-export const EditClientModalContainer = styled(Modal).attrs({})``
+export const Modal = styled(ModalContainer).attrs({})``

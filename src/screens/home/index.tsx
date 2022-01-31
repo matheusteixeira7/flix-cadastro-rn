@@ -8,7 +8,7 @@ import { Topbar } from '../../components/topbar'
 import {
   ClientRegisteredList,
   Container,
-  EditClientModalContainer,
+  Modal,
   PageContainer,
   RegisteredUsersTitle,
 } from './styles'
@@ -88,7 +88,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <EditClientModalContainer
+      <Modal
         animationType="fade"
         visible={modalVisible}
         transparent={true}
@@ -98,7 +98,7 @@ export const Home = () => {
           onPress={handleCloseEditClientModal}
           clientName={clientName}
         />
-      </EditClientModalContainer>
+      </Modal>
 
       <Topbar />
 

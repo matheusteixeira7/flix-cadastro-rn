@@ -1,8 +1,9 @@
 import React from 'react'
+import { TouchableOpacityProps } from 'react-native'
 
 import { Container, Button, Title } from './styles'
 
-interface IButtonModalProps {
+interface IButtonModalProps extends TouchableOpacityProps {
   title: string
 }
 

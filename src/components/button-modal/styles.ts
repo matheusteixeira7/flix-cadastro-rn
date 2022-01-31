@@ -1,8 +1,8 @@
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
-interface IProps extends RectButtonProps {
+interface IProps extends TouchableOpacityProps {
   title: string
 }
 
@@ -15,7 +15,7 @@ export const Container = styled.View<IProps>`
   margin-top: 24px;
 `
 
-export const Button = styled(RectButton)<IProps>`
+export const Button = styled(TouchableOpacity)<IProps>`
   padding: 18px;
   background-color: ${({ theme, title }) =>
     title === 'Sim' ? theme.colors.primary : theme.colors.transparent};
