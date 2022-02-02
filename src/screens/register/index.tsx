@@ -25,11 +25,12 @@ const schema = yup.object({
     .min(9, 'RG precisa ter exatamente 9 dígitos')
     .max(9, 'RG precisa ter exatamente 9 dígitos')
     .required('RG é obrigatório'),
-  birthDate: yup.date().nullable(),
+  datepicker: yup.string(),
 })
 
 export const Register = () => {
-  const [date, setDate] = useState(new Date(1598051730000))
+  const [myData, setMyData] = useState([])
+  const [date, setDate] = useState(null)
   const [mode, setMode] = useState('date')
   const [show, setShow] = useState(false)
 
@@ -46,13 +47,14 @@ export const Register = () => {
 
   const showDatepicker = () => {
     showMode('date')
+    setDate(new Date())
   }
 
   const showTimepicker = () => {
     showMode('time')
   }
 
-  const formattedDate = Intl.DateTimeFormat('pt-BR').format(date)
+  const formattedDate = date ? Intl.DateTimeFormat('pt-BR').format(date) : ''
 
   const {
     control,
@@ -60,7 +62,10 @@ export const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) })
 
-  const handleOnSubmit = (data) => console.log(data)
+  const handleOnSubmit = (data) => {
+    const peu = Object.assign(data, { datepicker: formattedDate })
+    setMyData(peu)
+  }
 
   return (
     <Container>
@@ -92,6 +97,7 @@ export const Register = () => {
               placeholder="CPF"
               icon="card-bulleted-outline"
               error={errors.cpf?.message}
+              keyboardType="numeric"
             />
           )}
         />
@@ -106,13 +112,14 @@ export const Register = () => {
               placeholder="RG"
               icon="card-account-details-outline"
               error={errors.rg?.message}
+              keyboardType="numeric"
             />
           )}
         />
         <Pressable onPress={showDatepicker}>
           <View pointerEvents="none">
             <Controller
-              name="birthDate"
+              name="datepicker"
               control={control}
               render={({ field: { onChange, onBlur } }) => (
                 <Input
@@ -121,7 +128,7 @@ export const Register = () => {
                   value={formattedDate}
                   placeholder="Data de nascimento"
                   icon="calendar"
-                  error={errors.birthDate?.message}
+                  error={errors.datepicker?.message}
                   editable={false}
                 />
               )}
@@ -139,9 +146,9 @@ export const Register = () => {
         />
 
         <View style={{ marginTop: 80 }}>
-          <Button title="Date" onPress={showDatepicker} />
+          <Button title="Submit" onPress={handleSubmit(handleOnSubmit)} />
+          <Button title="Clg" onPress={() => console.log(myData)} />
         </View>
-        <Button title="Submit" onPress={handleSubmit(handleOnSubmit)} />
       </View>
     </Container>
   )

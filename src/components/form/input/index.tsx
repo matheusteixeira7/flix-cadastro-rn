@@ -1,17 +1,11 @@
 import React from 'react'
+import { TextInputProps } from 'react-native'
 
 import { InputView, IconView, Icon, TextInput, Error } from './styles'
 
-interface IProps {
-  onBlur: () => void
-  onChangeText: (value: string) => void
-  value: string
-  placeholder: string
+interface IProps extends TextInputProps {
   icon: string
   error: string
-  editable?: boolean
-  selectTextOnFocus?: boolean
-  contextMenuHidden?: boolean
 }
 
 export const Input = ({
@@ -21,6 +15,7 @@ export const Input = ({
   placeholder,
   icon,
   error,
+  keyboardType,
 }: IProps) => {
   return (
     <>
@@ -33,6 +28,7 @@ export const Input = ({
           placeholder={placeholder}
           onChangeText={onChangeText}
           value={value}
+          keyboardType={keyboardType}
         />
       </InputView>
       {error != null && <Error>{error}</Error>}
