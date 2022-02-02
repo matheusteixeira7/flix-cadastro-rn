@@ -8,7 +8,9 @@ import React from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
 
+import { DateInput } from '../components/birthday-picker'
 import { Home } from '../screens/home'
+import { Register } from '../screens/register'
 import { Resume } from '../screens/resume'
 
 const { Navigator, Screen } = createBottomTabNavigator()
@@ -40,9 +42,10 @@ export const AppRoutes = () => {
       />
       <Screen
         name="Cadastrar"
-        component={Resume}
+        component={Register}
         options={{
           headerShown: false,
+          // tabBarStyle: { display: 'none' },
           tabBarIcon: () => (
             <View style={styles.container}>
               <Octicons name="diff-added" size={24} color={colors.white} />
@@ -52,7 +55,7 @@ export const AppRoutes = () => {
       />
       <Screen
         name="Resumo"
-        component={Resume}
+        component={DateInput}
         options={{
           headerShown: false,
           tabBarIcon: ({ size, color }) => (

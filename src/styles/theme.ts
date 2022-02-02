@@ -21,6 +21,8 @@ export default {
     gray_700: '#111111',
     gray_800: '#000000',
 
+    border: '#CCCCCC',
+
     title: '#585666',
     subtitle: '#706E7A',
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import { ClientRegistered } from '../../components/client-registered'
-import { EditClientModal } from '../../components/edit-client-modal'
-import { Registered } from '../../components/registered'
+import { Registered } from '../../components/banner'
+import { ClientRegistered } from '../../components/client'
+import { EditClientModal } from '../../components/modal-user'
 import { Separator } from '../../components/separator'
 import { Topbar } from '../../components/topbar'
 import {
