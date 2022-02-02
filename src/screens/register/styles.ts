@@ -6,6 +6,7 @@ import styled from 'styled-components/native'
 export const Container = styled.View`
   margin-top: ${getStatusBarHeight() + 24}px;
   padding: 0 24px;
+  flex: 1;
 `
 
 export const Title = styled.Text`

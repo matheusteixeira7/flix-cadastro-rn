@@ -45,7 +45,7 @@ export const AppRoutes = () => {
         component={Register}
         options={{
           headerShown: false,
-          // tabBarStyle: { display: 'none' },
+          tabBarStyle: { display: 'none' },
           tabBarIcon: () => (
             <View style={styles.container}>
               <Octicons name="diff-added" size={24} color={colors.white} />

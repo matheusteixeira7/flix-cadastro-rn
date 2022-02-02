@@ -1,6 +1,6 @@
 import DateTimePicker from '@react-native-community/datetimepicker'
 import React from 'react'
-import { View, Button, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 interface IProps {
   showDatepicker: () => void
@@ -11,23 +11,10 @@ interface IProps {
   show: boolean
 }
 
-export const DateInput = ({
-  showDatepicker,
-  showTimepicker,
-  date,
-  onChange,
-  mode,
-  show,
-}: IProps) => {
+export const DateInput = ({ date, onChange, mode, show }: IProps) => {
   return (
     <View style={styles.container}>
       <View>
-        <View>
-          <Button onPress={showDatepicker} title="Show date picker!" />
-        </View>
-        <View>
-          <Button onPress={showTimepicker} title="Show time picker!" />
-        </View>
         {show && (
           <DateTimePicker
             testID="dateTimePicker"

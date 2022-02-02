@@ -6,6 +6,7 @@ import { InputView, IconView, Icon, TextInput, Error } from './styles'
 interface IProps extends TextInputProps {
   icon: string
   error: string
+  ref?: null
 }
 
 export const Input = ({
