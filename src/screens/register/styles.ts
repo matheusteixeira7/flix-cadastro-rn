@@ -1,5 +1,8 @@
 import { ScrollView } from 'react-native-gesture-handler'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import {
+  getBottomSpace,
+  getStatusBarHeight,
+} from 'react-native-iphone-x-helper'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
@@ -20,3 +23,13 @@ export const Form = styled(ScrollView).attrs({
   showsVerticalScrollIndicator: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 })<any>``
+
+export const Footer = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 15px;
+
+  margin-bottom: ${getBottomSpace()}px;
+`

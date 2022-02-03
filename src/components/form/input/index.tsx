@@ -17,6 +17,7 @@ export const Input = ({
   icon,
   error,
   keyboardType,
+  autoCapitalize,
 }: IProps) => {
   return (
     <>
@@ -30,6 +31,7 @@ export const Input = ({
           onChangeText={onChangeText}
           value={value}
           keyboardType={keyboardType}
+          autoCapitalize={autoCapitalize}
         />
       </InputView>
       {error != null && <Error>{error}</Error>}

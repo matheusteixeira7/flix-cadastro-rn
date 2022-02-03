@@ -1,13 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { View, Button, Platform, Pressable } from 'react-native'
+import { View, Platform, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import * as yup from 'yup'
 
 import { DateInput } from '../../components/birthday-picker'
 import { Input } from '../../components/form/input'
-import { Container, Title } from './styles'
+import { SubmitButton } from '../../components/submit-button'
+import { Container, Footer, Title } from './styles'
 
 const schema = yup.object({
   name: yup
@@ -26,7 +27,7 @@ const schema = yup.object({
     .min(9, 'RG precisa ter exatamente 9 dígitos')
     .max(9, 'RG precisa ter exatamente 9 dígitos')
     .required('RG é obrigatório'),
-  datepicker: yup.string(),
+  datepicker: yup.string().nullable(),
   cellphone_1: yup
     .string()
     .min(11, 'Telefone precisa ter ddd + número')
@@ -38,13 +39,29 @@ const schema = yup.object({
     .max(11, 'Telefone precisa ter ddd + número'),
   whatsapp: yup
     .string()
+    .matches(/^[0-9]+$/, 'Whatsapp deve conter apenas números')
     .min(11, 'Whatsapp precisa ter ddd + número')
-    .max(11, 'Whatsapp precisa ter ddd + número')
+    .max(11, 'Whatsapp precisa ser ddd + número')
     .required('Whatsapp é obrigatório'),
+  email: yup
+    .string()
+    .email('Por favor, insira um email válido')
+    .required('E-mail é obrigatório'),
+  cep: yup
+    .string()
+    .matches(/^[0-9]+$/, 'CEP deve conter apenas números')
+    .min(8, 'CEP precisa ter exatamente 8 dígitos')
+    .max(8, 'CEP precisa ter exatamente 8 dígitos')
+    .required('CEP é obrigatório'),
+  streetAddress: yup.string().required('Endereço é obrigatório'),
+  addressNumber: yup.string().required('Número é obrigatório'),
+  neighborhood: yup.string().required('Bairro é obrigatório'),
+  city: yup.string().required('Cidade é obrigatório'),
+  state: yup.string().required('Estado é obrigatório'),
+  reference: yup.string().required('Pontos de referência é obrigatório'),
 })
 
 export const Register = () => {
-  const [cep, setCEP] = useState('')
   const [myData, setMyData] = useState([])
   const [date, setDate] = useState(null)
   const [mode, setMode] = useState('date')
@@ -56,7 +73,7 @@ export const Register = () => {
     setDate(currentDate)
   }
 
-  const showMode = (currentMode) => {
+  const showMode = (currentMode: React.SetStateAction<string>) => {
     setShow(true)
     setMode(currentMode)
   }
@@ -80,16 +97,15 @@ export const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) })
 
-  const checkCEP = (cep) => {
+  const checkCEP = (arg: { toString: () => string }) => {
     const regex = /\D/g
-    const formattedCep = cep.toString().replace(regex, '')
-    setCEP(formattedDate)
+    const cep = arg.toString().replace(regex, '')
 
-    fetch(`https://viacep.com.br/ws/${formattedCep}/json/`)
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
       .then((data) => {
         setValue('streetAddress', data.logradouro)
-        setValue('neiborhood', data.bairro)
+        setValue('neighborhood', data.bairro)
         setValue('city', data.localidade)
         setValue('state', data.uf)
       })
@@ -117,6 +133,7 @@ export const Register = () => {
               placeholder="Nome completo"
               icon="badge-account-horizontal-outline"
               error={errors.name?.message}
+              autoCapitalize="words"
             />
           )}
         />
@@ -238,7 +255,7 @@ export const Register = () => {
               value={value}
               placeholder="Email*"
               icon="email"
-              error={errors.whatsapp?.message}
+              error={errors.email?.message}
               keyboardType="email-address"
             />
           )}
@@ -296,7 +313,7 @@ export const Register = () => {
         />
 
         <Controller
-          name="neiborhood"
+          name="neighborhood"
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
@@ -305,8 +322,8 @@ export const Register = () => {
               value={value}
               placeholder="Bairro*"
               icon="home-city-outline"
-              error={errors.neiborhood?.message}
-              {...register('neiborhood')}
+              error={errors.neighborhood?.message}
+              {...register('neighborhood')}
               ref={null}
             />
           )}
@@ -361,10 +378,13 @@ export const Register = () => {
           )}
         />
 
-        <View>
-          <Button title="Submit" onPress={handleSubmit(handleOnSubmit)} />
-          <Button title="Clg" onPress={() => console.log(myData)} />
-        </View>
+        <Footer>
+          <SubmitButton onPress={() => console.log(myData)} title="Cancelar" />
+          <SubmitButton
+            onPress={handleSubmit(handleOnSubmit)}
+            title="Cadastrar"
+          />
+        </Footer>
       </ScrollView>
     </Container>
   )
