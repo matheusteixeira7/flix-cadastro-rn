@@ -8,7 +8,7 @@ import React from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
 
-import { DateInput } from '../components/birthday-picker'
+import { DateInput } from '../components/form/birthday-picker'
 import { Home } from '../screens/home'
 import { Register } from '../screens/register'
 import { Resume } from '../screens/resume'

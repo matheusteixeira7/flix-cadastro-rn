@@ -5,9 +5,9 @@ import { View, Platform, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import * as yup from 'yup'
 
-import { DateInput } from '../../components/birthday-picker'
+import { DateInput } from '../../components/form/birthday-picker'
 import { Input } from '../../components/form/input'
-import { SubmitButton } from '../../components/submit-button'
+import { SubmitButton } from '../../components/form/submit-button'
 import { Container, Footer, Title } from './styles'
 
 const schema = yup.object({
