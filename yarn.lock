@@ -1722,11 +1722,6 @@
   dependencies:
     invariant "^2.2.4"
 
-"@react-native-community/picker@^1.8.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.8.1.tgz#94f14f0aad98fa7592967b941be97deec95c3805"
-  integrity sha512-Sj9DzX1CSnmYiuEQ5fQhExoo4XjSKoZkqLPAAybycq6RHtCuWppf+eJXRMCOJki25BlKSSt+qVqg0fIe//ujNQ==
-
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@react-native/assets/-/assets-1.0.0.tgz"
@@ -5103,11 +5098,6 @@ istanbul-reports@^3.1.3:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
-jalaali-js@^1.1.0:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/jalaali-js/-/jalaali-js-1.2.3.tgz#365775826d2eece5e6552b96aff384c8773bb406"
-  integrity sha512-irl0pXL59Xl0Oz6jyOiJed/NxrVeS6fSx6a8atQOH/LsPWPZwBCxwe5XVEIqjnwt69FRxvnCCwQn5dTMxwbazQ==
-
 jest-changed-files@^27.4.2:
   version "27.4.2"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-27.4.2.tgz#da2547ea47c6e6a5f6ed336151bd2075736eb4a5"
@@ -6437,28 +6427,6 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-moment-jalaali@^0.9.2:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/moment-jalaali/-/moment-jalaali-0.9.4.tgz#297774e98d6c923857388e813b8a9b25d1d40a89"
-  integrity sha512-uysgveyWHXICzS16onbetvdMWV7yrPgQkXEnxZQGfHJx7LYNTkHpAc0a8BPlwcaGJ6fTY8pbiEBfap7uf3vChg==
-  dependencies:
-    jalaali-js "^1.1.0"
-    moment "^2.22.2"
-    moment-timezone "^0.5.21"
-    rimraf "^2.6.2"
-
-moment-timezone@^0.5.21:
-  version "0.5.34"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.34.tgz#a75938f7476b88f155d3504a9343f7519d9a405c"
-  integrity sha512-3zAEHh2hKUs3EXLESx/wsgw6IQdusOT8Bxm3D9UrHPQR7zlMmzwybC8zHEM1tQ4LJwP7fcxrWr8tuBg05fFCbg==
-  dependencies:
-    moment ">= 2.9.0"
-
-"moment@>= 2.9.0", moment@^2.22.2:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
-  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz"
@@ -7211,19 +7179,6 @@ react-native-modal@^13.0.0:
     prop-types "^15.6.2"
     react-native-animatable "1.3.3"
 
-react-native-modern-datepicker@^1.0.0-beta.91:
-  version "1.0.0-beta.91"
-  resolved "https://registry.yarnpkg.com/react-native-modern-datepicker/-/react-native-modern-datepicker-1.0.0-beta.91.tgz#11e65f9685743bda4e5af64388f39059adcaf110"
-  integrity sha512-tyyS6iswwxn/CWIgk9j82X5/9gkgAQuI4fiWa+TEWjOo1WIhBr0x7914mtagrVuVgJCMRnHCopCIWL78afakHw==
-  dependencies:
-    moment-jalaali "^0.9.2"
-    prop-types "^15.7.2"
-
-react-native-picker-module@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-picker-module/-/react-native-picker-module-2.0.4.tgz#4a08d8fd2cf18a4ab6a4d55152aa5789b5d898aa"
-  integrity sha512-oWvWNach+ajFu9E5AcqZ6W6PHtb3L0vjKuCelk6IdZTqbKP7wNqoSJWhAegza4kvf91qfmwVs8ihfQE4AS9CSw==
-
 react-native-responsive-fontsize@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/react-native-responsive-fontsize/-/react-native-responsive-fontsize-0.5.1.tgz#c39fa2212ecced2bac879211a7b25106534f72d2"
@@ -7527,7 +7482,7 @@ rfdc@^1.3.0:
   resolved "https://registry.yarnpkg.com/rfdc/-/rfdc-1.3.0.tgz#d0b7c441ab2720d05dc4cf26e01c89631d9da08b"
   integrity sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==
 
-rimraf@^2.5.4, rimraf@^2.6.2:
+rimraf@^2.5.4:
   version "2.7.1"
   resolved "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz"
   integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==

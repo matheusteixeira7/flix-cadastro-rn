@@ -7,7 +7,6 @@ import * as yup from 'yup'
 
 import { DateInput } from '../../components/form/birthday-picker'
 import { Input } from '../../components/form/input'
-import { Picker } from '../../components/form/picker'
 import { SubmitButton } from '../../components/form/submit-button'
 import { Container, Footer, Title } from './styles'
 
@@ -67,6 +66,11 @@ export const Register = () => {
   const [date, setDate] = useState(null)
   const [mode, setMode] = useState('date')
   const [show, setShow] = useState(false)
+  const [modalVisible, setModalVisible] = useState(true)
+
+  const handleCloseModal = () => {
+    setModalVisible(false)
+  }
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date
@@ -138,10 +142,6 @@ export const Register = () => {
             />
           )}
         />
-
-        <>
-          <Picker />
-        </>
 
         <Controller
           name="cpf"
@@ -394,6 +394,3 @@ export const Register = () => {
     </Container>
   )
 }
-
-// Por favor, informe o endereço para entrega
-// Informação inválida. Por favor, tente novamente.
