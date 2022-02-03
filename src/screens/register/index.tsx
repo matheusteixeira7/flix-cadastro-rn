@@ -7,6 +7,7 @@ import * as yup from 'yup'
 
 import { DateInput } from '../../components/form/birthday-picker'
 import { Input } from '../../components/form/input'
+import { Picker } from '../../components/form/picker'
 import { SubmitButton } from '../../components/form/submit-button'
 import { Container, Footer, Title } from './styles'
 
@@ -137,6 +138,10 @@ export const Register = () => {
             />
           )}
         />
+
+        <>
+          <Picker />
+        </>
 
         <Controller
           name="cpf"
