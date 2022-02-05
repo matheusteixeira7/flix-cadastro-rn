@@ -1,13 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { View, Platform, Pressable, Modal } from 'react-native'
+import { View, Platform, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import * as yup from 'yup'
 
 import { DateInput } from '../../components/form/birthday-picker'
 import { Input } from '../../components/form/input'
-import { ModalProduct } from '../../components/form/modal-product'
 import { SubmitButton } from '../../components/form/submit-button'
 import { Container, Footer, Title } from './styles'
 
@@ -64,18 +63,9 @@ const schema = yup.object({
 
 export const Register = () => {
   const [date, setDate] = useState(null)
-  const [modalVisible, setModalVisible] = useState(true)
   const [mode, setMode] = useState('date')
   const [myData, setMyData] = useState([])
   const [show, setShow] = useState(false)
-
-  const handleCloseModal = () => {
-    setModalVisible(false)
-  }
-
-  const handleOpenModal = () => {
-    setModalVisible(true)
-  }
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date
@@ -147,15 +137,6 @@ export const Register = () => {
             />
           )}
         />
-
-        <Modal
-          animationType="fade"
-          visible={modalVisible}
-          transparent={true}
-          onRequestClose={handleCloseModal}
-        >
-          <ModalProduct />
-        </Modal>
 
         <Controller
           name="cpf"
