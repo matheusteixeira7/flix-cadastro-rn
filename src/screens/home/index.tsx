@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ScrollView } from 'react-native'
 
 import { Registered } from '../../components/banner'
 import { ClientRegistered } from '../../components/client'
@@ -88,36 +89,33 @@ export const Home = () => {
 
   return (
     <Container>
-      <Modal
-        animationType="fade"
-        visible={modalVisible}
-        transparent={true}
-        onRequestClose={handleCloseEditClientModal}
-      >
-        <EditClientModal
-          onPress={handleCloseEditClientModal}
-          clientName={clientName}
-        />
-      </Modal>
-
-      <Topbar />
-
-      <PageContainer>
-        <Registered />
-        <RegisteredUsersTitle>Usuários Cadastrados</RegisteredUsersTitle>
-        <Separator />
-        <ClientRegisteredList
-          data={client}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
+      <ScrollView>
+        <Modal
+          animationType="fade"
+          visible={modalVisible}
+          transparent={true}
+          onRequestClose={handleCloseEditClientModal}
+        >
+          <EditClientModal
+            onPress={handleCloseEditClientModal}
+            clientName={clientName}
+          />
+        </Modal>
+        <Topbar />
+        <PageContainer>
+          <Registered />
+          <RegisteredUsersTitle>Usuários Cadastrados</RegisteredUsersTitle>
+          <Separator />
+          {client.map((client) => (
             <ClientRegistered
-              data={item}
+              key={client.id}
+              data={client}
               openModal={handleOpenEditClientModal}
               setUserName={handleClientName}
             />
-          )}
-        />
-      </PageContainer>
+          ))}
+        </PageContainer>
+      </ScrollView>
     </Container>
   )
 }
