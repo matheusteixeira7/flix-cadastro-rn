@@ -10,7 +10,7 @@ export const Container = styled.View`
 
 export const Background = styled.Pressable`
   flex: 1;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.modal_transparent};
 `
