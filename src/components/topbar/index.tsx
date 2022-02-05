@@ -18,7 +18,7 @@ export const Topbar = () => {
         <UserWrapper>
           <UserPicture
             source={{
-              uri: 'https://bit.ly/34300KL',
+              uri: 'https://avatars.githubusercontent.com/u/62615871?v=4',
             }}
           />
           <User>
