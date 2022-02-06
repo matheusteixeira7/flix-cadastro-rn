@@ -23,8 +23,14 @@ export default {
 
     border: '#CCCCCC',
 
-    title: '#585666',
+    black: '#000000',
+
+    background: '#E5E5E5',
+
+    title: '#000000',
     subtitle: '#706E7A',
+
+    placeholder: '#9e9e9e',
 
     transparent: 'rgba(0, 0, 0, 0)',
     modal_transparent: 'rgba(0, 0, 0, 0.6)',

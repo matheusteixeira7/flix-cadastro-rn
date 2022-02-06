@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextInputProps } from 'react-native'
 
-import { InputView, IconView, Icon, TextInput, Error } from './styles'
+import { Icon, TextInput, Error, Container, InputView } from './styles'
 
 interface IProps extends TextInputProps {
   icon: string
@@ -20,11 +20,9 @@ export const Input = ({
   autoCapitalize,
 }: IProps) => {
   return (
-    <>
+    <Container>
       <InputView>
-        <IconView>
-          <Icon name={icon} />
-        </IconView>
+        <Icon name={icon} />
         <TextInput
           onBlur={onBlur}
           placeholder={placeholder}
@@ -35,6 +33,6 @@ export const Input = ({
         />
       </InputView>
       {error != null && <Error>{error}</Error>}
-    </>
+    </Container>
   )
 }

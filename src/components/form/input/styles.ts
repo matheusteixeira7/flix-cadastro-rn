@@ -2,37 +2,32 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
-export const InputView = styled.View`
-  margin-top: 16px;
+export const Container = styled.View`
+  margin-bottom: 16px;
+`
 
+export const InputView = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.border};
-`
-
-export const IconView = styled.View`
-  border-right-width: 1px;
-  border-right-color: ${({ theme }) => theme.colors.border};
-
   padding: 16px;
+  background-color: ${({ theme }) => theme.colors.background};
+  border-radius: 10px;
 `
 
 export const Icon = styled(MaterialCommunityIcons)`
-  color: ${({ theme }) => theme.colors.attention};
+  color: ${({ theme }) => theme.colors.black};
   font-size: ${RFValue(24)}px;
 `
 
 export const TextInput = styled.TextInput`
   color: ${({ theme }) => theme.colors.title};
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${RFValue(15)}px;
 
-  width: 100%;
-
   margin-left: 16px;
+  width: 100%;
 `
 
 export const Error = styled.Text`
@@ -40,5 +35,5 @@ export const Error = styled.Text`
   font-size: ${RFValue(12)}px;
   color: ${({ theme }) => theme.colors.attention};
 
-  margin-top: 06px;
+  margin-top: 6px;
 `

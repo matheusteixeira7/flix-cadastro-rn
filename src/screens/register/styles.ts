@@ -7,19 +7,20 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  margin-top: ${getStatusBarHeight() + 24}px;
   padding: 0 24px;
   flex: 1;
 `
 
 export const Title = styled.Text`
+  margin-top: ${getStatusBarHeight() + 24}px;
+  margin-bottom: 32px;
+
   color: ${({ theme }) => theme.colors.title};
   font-family: ${({ theme }) => theme.fonts.semibold};
   font-size: ${RFValue(20)}px;
-  text-align: center;
 `
 
-export const Form = styled(ScrollView).attrs({
+export const FormScrollView = styled(ScrollView).attrs({
   showsVerticalScrollIndicator: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 })<any>``

@@ -6,9 +6,10 @@ import { ScrollView } from 'react-native-gesture-handler'
 import * as yup from 'yup'
 
 import { DateInput } from '../../components/form/birthday-picker'
+import { ButtonSelectProduct } from '../../components/form/button-select-product'
 import { Input } from '../../components/form/input'
 import { SubmitButton } from '../../components/form/submit-button'
-import { Container, Footer, Title } from './styles'
+import { Container, Footer, FormScrollView, Title } from './styles'
 
 const schema = yup.object({
   name: yup
@@ -119,9 +120,9 @@ export const Register = () => {
 
   return (
     <Container>
-      <Title>Preencha os dados{'\n'} do cliente</Title>
+      <FormScrollView>
+        <Title>Preencha os dados{'\n'} do cliente</Title>
 
-      <ScrollView>
         <Controller
           name="name"
           control={control}
@@ -137,6 +138,8 @@ export const Register = () => {
             />
           )}
         />
+
+        <ButtonSelectProduct />
 
         <Controller
           name="cpf"
@@ -385,7 +388,7 @@ export const Register = () => {
             title="Cadastrar"
           />
         </Footer>
-      </ScrollView>
+      </FormScrollView>
     </Container>
   )
 }

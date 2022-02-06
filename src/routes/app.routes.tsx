@@ -12,6 +12,7 @@ import { DateInput } from '../components/form/birthday-picker'
 import { Home } from '../screens/home'
 import { Register } from '../screens/register'
 import { Resume } from '../screens/resume'
+import { SelectProduct } from '../screens/select-product'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -50,6 +51,16 @@ export const AppRoutes = () => {
             <View style={styles.container}>
               <Octicons name="diff-added" size={24} color={colors.white} />
             </View>
+          ),
+        }}
+      />
+      <Screen
+        name="Select"
+        component={SelectProduct}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home-minus" size={30} color={color} />
           ),
         }}
       />
