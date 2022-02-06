@@ -8,11 +8,9 @@ import React from 'react'
 import { Platform, View, StyleSheet } from 'react-native'
 import { useTheme } from 'styled-components'
 
-import { DateInput } from '../components/form/birthday-picker'
 import { Home } from '../screens/home'
 import { Register } from '../screens/register'
 import { Resume } from '../screens/resume'
-import { SelectProduct } from '../screens/select-product'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -54,19 +52,10 @@ export const AppRoutes = () => {
           ),
         }}
       />
-      <Screen
-        name="Select"
-        component={SelectProduct}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home-minus" size={30} color={color} />
-          ),
-        }}
-      />
+
       <Screen
         name="Resumo"
-        component={DateInput}
+        component={Resume}
         options={{
           headerShown: false,
           tabBarIcon: ({ size, color }) => (

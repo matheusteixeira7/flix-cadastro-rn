@@ -5,7 +5,7 @@ import { Container, Title } from './styles'
 export const SelectProduct = () => {
   return (
     <Container>
-      <Title>Title</Title>
+      <Title>Text</Title>
     </Container>
   )
 }

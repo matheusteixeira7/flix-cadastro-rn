@@ -19,7 +19,7 @@ import { StyleSheet } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { ThemeProvider } from 'styled-components/native'
 
-import { AppRoutes } from './src/routes/app.routes'
+import { StackRoutes } from './src/routes/stack.routes'
 import theme from './src/styles/theme'
 
 export default function App() {
@@ -39,7 +39,7 @@ export default function App() {
       <StatusBar style="light" />
       <ThemeProvider theme={theme}>
         <GestureHandlerRootView style={styles.gestureHandler}>
-          <AppRoutes />
+          <StackRoutes />
         </GestureHandlerRootView>
       </ThemeProvider>
     </NavigationContainer>

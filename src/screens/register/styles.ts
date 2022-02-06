@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons'
 import { ScrollView } from 'react-native-gesture-handler'
 import {
   getBottomSpace,
@@ -11,8 +12,17 @@ export const Container = styled.View`
   flex: 1;
 `
 
-export const Title = styled.Text`
+export const ReturnView = styled.Pressable`
   margin-top: ${getStatusBarHeight() + 24}px;
+  margin-bottom: 16px;
+`
+
+export const Icon = styled(Ionicons)`
+  color: ${({ theme }) => theme.colors.subtitle};
+  font-size: ${RFValue(24)}px;
+`
+
+export const Title = styled.Text`
   margin-bottom: 32px;
 
   color: ${({ theme }) => theme.colors.title};
@@ -23,7 +33,9 @@ export const Title = styled.Text`
 export const FormScrollView = styled(ScrollView).attrs({
   showsVerticalScrollIndicator: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-})<any>``
+})<any>`
+  padding-top: 16px;
+`
 
 export const Footer = styled.View`
   flex-direction: row;

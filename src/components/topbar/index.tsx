@@ -1,4 +1,7 @@
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
 import React from 'react'
+import { Pressable } from 'react-native'
 
 import {
   Container,
@@ -11,7 +14,20 @@ import {
   UserPicture,
 } from './styles'
 
+type IStackProps = StackNavigationProp<StackParamList>
+
+export type StackParamList = {
+  Registro: undefined
+  // About: { bar: string; onBaz: () => void }
+}
+
 export const Topbar = () => {
+  const navigation = useNavigation<IStackProps>()
+
+  const handleGoToRegisterScreen = () => {
+    navigation.navigate('Registro')
+  }
+
   return (
     <Container>
       <ContentWrapper>
@@ -27,7 +43,9 @@ export const Topbar = () => {
           </User>
         </UserWrapper>
 
-        <Icon name="power" />
+        <Pressable onPress={handleGoToRegisterScreen}>
+          <Icon name="power" />
+        </Pressable>
       </ContentWrapper>
     </Container>
   )

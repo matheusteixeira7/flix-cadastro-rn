@@ -1,15 +1,22 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { View, Platform, Pressable } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
 import * as yup from 'yup'
 
 import { DateInput } from '../../components/form/birthday-picker'
 import { ButtonSelectProduct } from '../../components/form/button-select-product'
 import { Input } from '../../components/form/input'
 import { SubmitButton } from '../../components/form/submit-button'
-import { Container, Footer, FormScrollView, Title } from './styles'
+import {
+  Container,
+  Footer,
+  FormScrollView,
+  Icon,
+  ReturnView,
+  Title,
+} from './styles'
 
 const schema = yup.object({
   name: yup
@@ -68,6 +75,8 @@ export const Register = () => {
   const [myData, setMyData] = useState([])
   const [show, setShow] = useState(false)
 
+  const navigation = useNavigation()
+
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date
     setShow(Platform.OS === 'ios')
@@ -114,12 +123,17 @@ export const Register = () => {
   }
 
   const handleOnSubmit = (data) => {
-    const peu = Object.assign(data, { datepicker: formattedDate })
-    setMyData(peu)
+    const formData = Object.assign(data, { datepicker: formattedDate })
+    setMyData(formData)
+    console.log(formData)
   }
 
   return (
     <Container>
+      <ReturnView onPress={() => navigation.goBack()}>
+        <Icon name="ios-chevron-back-outline" />
+      </ReturnView>
+
       <FormScrollView>
         <Title>Preencha os dados{'\n'} do cliente</Title>
 
