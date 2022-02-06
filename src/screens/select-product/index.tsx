@@ -1,11 +1,16 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 
-import { Container, Title } from './styles'
+import { Container, Icon, ReturnView } from './styles'
 
 export const SelectProduct = () => {
+  const navigation = useNavigation()
+
   return (
     <Container>
-      <Title>Text</Title>
+      <ReturnView onPress={() => navigation.goBack()}>
+        <Icon name="ios-chevron-back-outline" />
+      </ReturnView>
     </Container>
   )
 }

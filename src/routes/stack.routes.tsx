@@ -18,8 +18,8 @@ export function StackRoutes() {
       }}
     >
       <Screen name="Home" component={Home} />
-      <Screen name="Registro" component={Register} />
-      <Screen name="Selecione o Produto" component={SelectProduct} />
+      <Screen name="Register" component={Register} />
+      <Screen name="SelectProduct" component={SelectProduct} />
     </Navigator>
   )
 }

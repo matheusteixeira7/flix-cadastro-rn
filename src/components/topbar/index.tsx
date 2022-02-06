@@ -17,7 +17,7 @@ import {
 type IStackProps = StackNavigationProp<StackParamList>
 
 export type StackParamList = {
-  Registro: undefined
+  Register: undefined
   // About: { bar: string; onBaz: () => void }
 }
 
@@ -25,7 +25,7 @@ export const Topbar = () => {
   const navigation = useNavigation<IStackProps>()
 
   const handleGoToRegisterScreen = () => {
-    navigation.navigate('Registro')
+    navigation.navigate('Register')
   }
 
   return (

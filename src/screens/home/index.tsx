@@ -6,13 +6,7 @@ import { ClientRegistered } from '../../components/client'
 import { EditClientModal } from '../../components/modal-user'
 import { Separator } from '../../components/separator'
 import { Topbar } from '../../components/topbar'
-import {
-  ClientRegisteredList,
-  Container,
-  Modal,
-  PageContainer,
-  RegisteredUsersTitle,
-} from './styles'
+import { Container, Modal, PageContainer, RegisteredUsersTitle } from './styles'
 
 const client = [
   {

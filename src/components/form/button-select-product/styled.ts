@@ -6,7 +6,7 @@ interface ITitleProps {
   title: string
 }
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
